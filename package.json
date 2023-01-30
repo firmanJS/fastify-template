@@ -1,0 +1,14 @@
+{
+  "name": "fastify-template",
+  "version": "1.0.0",
+  "description": "fastify template nodejs",
+  "main": "index.js",
+  "repository": "https://github.com/firmanJS/fastify-template.git",
+  "author": "firmanJS",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2"
+  }
+}
