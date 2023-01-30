@@ -2,13 +2,13 @@
   "name": "fastify-template",
   "version": "1.0.0",
   "description": "fastify template nodejs",
-  "main": "index.js",
+  "main": "main.js",
   "repository": "https://github.com/firmanJS/fastify-template.git",
   "author": "firmanJS",
   "license": "MIT",
   "scripts": {
-    "dev": "NODE_ENV=dev nodemon src/app.js",
-    "start": "node src/app.js",
+    "dev": "NODE_ENV=dev nodemon src/main.js",
+    "start": "node src/main.js",
     "test": "jest",
     "format": "prettier-eslint --single-quote --write \"src/**/*.js\""
   },
@@ -20,6 +20,7 @@
     "nodemon": "^2.0.20"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
     "fastify": "^4.12.0"
   }
 }
