@@ -1,6 +1,6 @@
 const fastify = require('fastify')({ logger: true });
+const { APP_CONFIG, APP_NAME, NODE_ENV } = require('./config')
 const { handlerExit, handleUncaughtErrors } = require('./utils');
-require('dotenv').config()
 
 const bootstrap = async () => {
   try {
@@ -13,11 +13,11 @@ const bootstrap = async () => {
     // fastify.register(v1RoutesMiddleware, { prefix: '/v1' });
 
     // Server
-    await fastify.listen({ port: process.env.APP_PORT });
+    fastify.listen(APP_CONFIG);
     fastify.log.info(
       '%s listening in %s environment',
-      process.env.APP_NAME,
-      process.env.NODE_ENV
+      APP_NAME,
+      NODE_ENV
     );
   } catch (err) {
     fastify.log.error(err);
