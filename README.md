@@ -1,7 +1,7 @@
 # Fastify Template
 [![Node.js CI](https://github.com/firmanJS/fastify-template/actions/workflows/nodejs.yml/badge.svg?branch=main)](https://github.com/firmanJS/fastify-template/actions/workflows/nodejs.yml)
-[![Maintainability](https://api.codeclimate.com/v1/badges/9efe57e81ceae70a7c8d/maintainability)](https://codeclimate.com/github/firmanJS/fastify-template/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/9efe57e81ceae70a7c8d/test_coverage)](https://codeclimate.com/github/firmanJS/fastify-template/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a4821ab8ae6ff29792a0/maintainability)](https://codeclimate.com/github/firmanJS/fastify-template/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a4821ab8ae6ff29792a0/test_coverage)](https://codeclimate.com/github/firmanJS/fastify-template/test_coverage)
 [![made-with-nodejs](https://img.shields.io/badge/Made%20with-Nodejs-1f425f.svg)](https://nodejs.org)
 [![made-with-fastify](https://img.shields.io/badge/Made%20with-Fastify-1f425f.svg)](https://www.fastify.io/)
 [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://github.com/firmanJS)
