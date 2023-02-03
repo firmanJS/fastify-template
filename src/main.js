@@ -1,4 +1,5 @@
 const fastify = require('fastify')({ logger: true });
+const helmet = require('@fastify/helmet')
 const { APP_CONFIG, APP_NAME, NODE_ENV } = require('./config');
 const { infoRoutesMiddleware } = require('./modules/health');
 const { handlerExit, handleUncaughtErrors } = require('./utils');
@@ -11,6 +12,7 @@ const bootstrap = async () => {
 
     // Register Plugins
     fastify.register(infoRoutesMiddleware);
+    fastify.register(helmet)
     // fastify.register(v1RoutesMiddleware, { prefix: '/v1' });
 
     // Server

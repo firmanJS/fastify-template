@@ -7,7 +7,7 @@
   "author": "firmanJS",
   "license": "MIT",
   "scripts": {
-    "dev": "NODE_ENV=dev nodemon src/main.js",
+    "dev": "NODE_ENV=development nodemon src/main.js",
     "start": "node src/main.js",
     "test": "jest",
     "lint": "eslint --fix --ext .js, ."
@@ -20,6 +20,7 @@
     "nodemon": "^2.0.20"
   },
   "dependencies": {
+    "@fastify/helmet": "^10.1.0",
     "dotenv": "^16.0.3",
     "fastify": "^4.12.0",
     "knex": "^2.4.2",

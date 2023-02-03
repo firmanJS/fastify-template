@@ -5,7 +5,7 @@ module.exports = {
   NODE_ENV: process.env.NODE_ENV,
   APP_CONFIG: { port: process.env.APP_PORT },
   DB: {
-    DEV: {
+    development: {
       DB_CLIENT: process.env.DB_CLIENT_DEV,
       DB_HOST: process.env.DB_HOST_DEV,
       DB_PORT: process.env.DB_PORT_DEV,
@@ -13,7 +13,7 @@ module.exports = {
       DB_PASS: process.env.DB_PASS_DEV,
       DB_NAME: process.env.DB_NAME_DEV,
     },
-    STG: {
+    production: {
       DB_CLIENT: process.env.DB_CLIENT_STG,
       DB_HOST: process.env.DB_HOST_STG,
       DB_PORT: process.env.DB_PORT_STG,
@@ -21,7 +21,7 @@ module.exports = {
       DB_PASS: process.env.DB_PASS_STG,
       DB_NAME: process.env.DB_NAME_STG,
     },
-    PROD: {
+    staging: {
       DB_CLIENT: process.env.DB_CLIENT_PROD,
       DB_HOST: process.env.DB_HOST_PROD,
       DB_PORT: process.env.DB_PORT_PROD,
