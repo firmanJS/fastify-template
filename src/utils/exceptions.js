@@ -1,4 +1,5 @@
 const { logErrDetails } = require('./logger');
+const { HTTP } = require('./constant')
 
 /**
  *
@@ -22,3 +23,27 @@ module.exports.handlerExit = () => {
     process.exit(0);
   });
 };
+
+module.exports.errorHandler = (options) => {
+  const { request, reply, error } = options
+  request.log.error(error);
+  const result = reply.code(HTTP.BAD_REQUEST).send({
+    status: false,
+    message: error.toString(),
+    data: {}
+  });
+  return result
+}
+
+module.exports.succesHandler = (options) => {
+  const {
+    request, reply, error, code
+  } = options
+  request.log.info(error);
+  const result = reply.code(code).send({
+    status: false,
+    message: error.toString(),
+    data: {}
+  });
+  return result
+}

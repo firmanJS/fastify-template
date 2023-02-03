@@ -10,7 +10,7 @@
     "dev": "NODE_ENV=dev nodemon src/main.js",
     "start": "node src/main.js",
     "test": "jest",
-    "format": "prettier-eslint --single-quote --write \"src/**/*.js\""
+    "lint": "eslint --fix --ext .js, ."
   },
   "devDependencies": {
     "eslint": "^7.32.0 || ^8.2.0",
@@ -21,6 +21,8 @@
   },
   "dependencies": {
     "dotenv": "^16.0.3",
-    "fastify": "^4.12.0"
+    "fastify": "^4.12.0",
+    "knex": "^2.4.2",
+    "pg": "^8.9.0"
   }
 }

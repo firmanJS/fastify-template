@@ -1,5 +1,6 @@
 const fastify = require('fastify')({ logger: true });
-const { APP_CONFIG, APP_NAME, NODE_ENV } = require('./config')
+const { APP_CONFIG, APP_NAME, NODE_ENV } = require('./config');
+const { infoRoutesMiddleware } = require('./modules/health');
 const { handlerExit, handleUncaughtErrors } = require('./utils');
 
 const bootstrap = async () => {
@@ -8,8 +9,8 @@ const bootstrap = async () => {
     handlerExit();
     handleUncaughtErrors();
 
-    // Plugins
-    // fastify.register(infoRoutesMiddleware);
+    // Register Plugins
+    fastify.register(infoRoutesMiddleware);
     // fastify.register(v1RoutesMiddleware, { prefix: '/v1' });
 
     // Server
