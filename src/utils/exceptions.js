@@ -2,6 +2,8 @@ const { logErrDetails } = require('./logger');
 const { APP_NAME, NODE_ENV } = require('../config');
 const { HTTP, PAGE, LIMIT } = require('./constant')
 const { lang } = require('../lang')
+
+const opt = { status: true, message: lang.__('get.success'), code: HTTP.OK }
 /**
  *
  * @param err
@@ -47,8 +49,7 @@ exports.errorHandler = (options) => {
 exports.baseResponse = (res, rows) => res.code(rows.code).send(rows?.data)
 
 exports.paginationResponse = (req, res, rows) => {
-  const options = { status: true, message: lang.__('get.success'), code: HTTP.OK }
-  let { status, message, code } = options
+  let { status, message, code } = opt
   if (Number(rows?.data?.data?.count) === 0) {
     status = false
     message = lang.__('notfound')
