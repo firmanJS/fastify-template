@@ -1,9 +1,10 @@
-const { HTTP, errorHandler } = require('../../utils');
+const { HTTP, errorHandler, succesHandler } = require('../../utils');
 
 /**
  *
  * @param request
  * @param reply
+ * @return {void}
  */
 exports.keepAlive = async (request, reply) => {
   reply.code(HTTP.OK).send('API is alive');
@@ -13,17 +14,15 @@ exports.keepAlive = async (request, reply) => {
  *
  * @param request
  * @param reply
+ * @return {void}
  */
 exports.ping = async (request, reply) => {
   try {
-    reply.code(HTTP.OK).send({
-      status: true,
-      message: 'hello',
-      data: {},
-      kucong
-    });
+    return succesHandler({
+      reply, message: 'hello', data: []
+    })
   } catch (error) {
-    errorHandler({ request, reply, error })
+    return errorHandler({ request, reply, error })
   }
 };
 
@@ -31,6 +30,7 @@ exports.ping = async (request, reply) => {
  *
  * @param request
  * @param reply
+ * @return {void}
  */
 exports.getVersion = async (request, reply) => {
   reply.code(HTTP.OK).send({

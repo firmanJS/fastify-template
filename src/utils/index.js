@@ -1,13 +1,13 @@
-/* eslint-disable global-require */
-/* eslint-disable import/no-dynamic-require */
-const fs = require('fs');
-const path = require('path');
+const constant = require('./constant')
+const excetions = require('./exceptions')
+const logger = require('./logger')
+const date = require('./date')
+const request = require('./request')
 
-const directory = path.join(__dirname, '../utils');
-const readFile = fs.readdirSync(directory)
-const utils = readFile.map((r) => {
-  const replaceFile = r.replace('.js', '')
-  const req = require(`./${replaceFile}`)
-  return req
-})
-module.exports = Object.assign({}, ...utils)
+module.exports = {
+  ...date,
+  ...constant,
+  ...excetions,
+  ...logger,
+  ...request
+}

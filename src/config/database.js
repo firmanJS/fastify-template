@@ -7,7 +7,5 @@ const env = NODE_ENV || 'development'
 const configCore = knexfile[env]
 
 module.exports = {
-  PG: knex(configCore),
-  MYSQL: knex(configCore),
-  MSSQL: knex(configCore)
+  PG: knex(configCore)
 }

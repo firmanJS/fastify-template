@@ -2,17 +2,20 @@ const fastify = require('fastify')({ logger: true });
 const helmet = require('@fastify/helmet')
 const { APP_CONFIG, APP_NAME, NODE_ENV } = require('./config');
 const { infoRoutesMiddleware } = require('./modules/health');
-const { handlerExit, handleUncaughtErrors } = require('./utils');
+const { v1Routes } = require('./route/version_one');
+const { handlerExit, handlerUncaughtErrors, handlerNotFound } = require('./utils');
 
 const bootstrap = async () => {
   try {
     // error handler global
     handlerExit();
-    handleUncaughtErrors();
+    handlerUncaughtErrors();
 
     // Register Plugins
-    fastify.register(infoRoutesMiddleware);
     fastify.register(helmet)
+    fastify.register(infoRoutesMiddleware);
+    fastify.register(v1Routes, { prefix: '/v1' });
+    fastify.setNotFoundHandler(handlerNotFound)
     // fastify.register(v1RoutesMiddleware, { prefix: '/v1' });
 
     // Server
