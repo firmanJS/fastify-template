@@ -11,7 +11,14 @@
 [![GitHub issues](https://img.shields.io/github/issues/firmanjs/fastify-template.svg)](https://github.com/firmanJS/fastify-template/issues/)
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/firmanjs/fastify-template.svg)](https://github.com/firmanJS/fastify-template/pulls/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
-
+<div align="center"> <a href="https://fastify.io/">
+    <img
+      src="https://github.com/fastify/graphics/raw/HEAD/fastify-landscape-outlined.svg"
+      width="650"
+      height="auto"
+    />
+  </a>
+</div>
 **Default branch** :
  * default template clean no db configuration
  
@@ -38,7 +45,7 @@ https://github.com/firmanJS/fastify-template.git
 
 ## Core Stack
 - **Node.js** - [http://nodejs.org/](http://nodejs.org/)
-- **Express** - [https://www.fastify.io/](https://www.fastify.io/)
+- **Fastify** - [https://www.fastify.io/](https://www.fastify.io/)
 
 ## Feature
 1. * [x] **error handling**
@@ -46,7 +53,7 @@ https://github.com/firmanJS/fastify-template.git
 1. * [x] **testing with jest**
 1. * [x] **coverage use jest**
 1. * [x] **with docker example**
-1. * [x] **validiation, use express-valdator**
+1. * [x] **validiation**
 1. * [x] **pagination example**
 1. * [x] **custom message api response**
 1. * [x] **eslint airbnb base**
@@ -124,10 +131,10 @@ docker-compose up --build -d
 ### execution npm with container docker
 ```sh
 # install package
-docker-compose exec boillerplate-typescript npm install
+docker-compose exec fastify-template npm install
 
 # running unit testing
-docker-compose exec boillerplate-typescript npm run test
+docker-compose exec fastify-template npm run test
 ```
 
 ## Project Structure
