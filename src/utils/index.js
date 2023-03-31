@@ -3,11 +3,13 @@ const excetions = require('./exceptions')
 const logger = require('./logger')
 const date = require('./date')
 const request = require('./request')
+const auth = require('./auth')
 
 module.exports = {
   ...date,
   ...constant,
   ...excetions,
   ...logger,
-  ...request
+  ...request,
+  ...auth
 }

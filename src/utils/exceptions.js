@@ -116,7 +116,7 @@ const conditionCheck = (error, manipulate, message) => {
 exports.mappingError = (req, error, code = HTTP.BAD_REQUEST) => {
   let { message, exception } = ['', '']
   const manipulate = error.toString().split(':')
-  console.error(`catch message ${error}`);
+  req.log.error(`catch message ${error}`);
   message = lang.__('error.db.transaction')
   if (NODE_ENV === 'development') {
     exception = error.toString()

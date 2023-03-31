@@ -10,7 +10,7 @@
 const repository = require('./users_repository')
 const {
   baseResponse, paramsHttp, dynamicFilter, paging,
-  dynamicOrder, bodyHttp, METHOD, paginationResponse
+  dynamicOrder, bodyHttp, METHOD, paginationResponse, generatePassword
 } = require('../../../utils')
 
 const optionsPayload = (req, type_method) => {
@@ -34,7 +34,8 @@ const optionsPayload = (req, type_method) => {
  * @return {void}
 */
 exports.store = async (req, res) => {
-  const payload = bodyHttp(req)
+  let payload = bodyHttp(req)
+  payload = generatePassword(payload)
   const result = await repository.create(req, payload)
   return baseResponse(res, result)
 }
@@ -81,6 +82,9 @@ exports.update = async (req, res) => {
     type = 'update'
   }
   const options = optionsPayload(req, type)
+  if (req?.body?.password) {
+    options.payload = generatePassword(req?.body)
+  }
   const result = await repository.update(req, options)
   return baseResponse(res, result)
 }

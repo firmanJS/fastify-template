@@ -11,19 +11,19 @@
 [![GitHub issues](https://img.shields.io/github/issues/firmanjs/fastify-template.svg)](https://github.com/firmanJS/fastify-template/issues/)
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/firmanjs/fastify-template.svg)](https://github.com/firmanJS/fastify-template/pulls/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+<div align="center"> <a href="https://fastify.io/">
+    <img
+      src="https://github.com/fastify/graphics/raw/HEAD/fastify-landscape-outlined.svg"
+      width="650"
+      height="auto"
+    />
+  </a>
+</div>
 
-**Default branch** :
- * default template clean no db configuration
- 
-**More Feature Checkout the branch** :
- * [x] `main` no db configuration
- * [ ] `feature/knex` using knex orm default postgre
- * [ ] `feature/mongo` using mongoose orm
-
-This project has 3 Domain layer :
+**This project has 3 Domain layer**:
+ * Route Layer
+ * Handler Layer  
  * Repository Layer
- * Usecase Layer  
- * Transport Layer
 
 ## How To use
 you must click the button use this template
@@ -38,7 +38,7 @@ https://github.com/firmanJS/fastify-template.git
 
 ## Core Stack
 - **Node.js** - [http://nodejs.org/](http://nodejs.org/)
-- **Express** - [https://www.fastify.io/](https://www.fastify.io/)
+- **Fastify** - [https://www.fastify.io/](https://www.fastify.io/)
 
 ## Feature
 1. * [x] **error handling**
@@ -46,7 +46,7 @@ https://github.com/firmanJS/fastify-template.git
 1. * [x] **testing with jest**
 1. * [x] **coverage use jest**
 1. * [x] **with docker example**
-1. * [x] **validiation, use express-valdator**
+1. * [x] **validiation**
 1. * [x] **pagination example**
 1. * [x] **custom message api response**
 1. * [x] **eslint airbnb base**
@@ -55,39 +55,104 @@ https://github.com/firmanJS/fastify-template.git
 - **jestjs** - [https://jestjs.io/](https://jestjs.io/)
 
 ## How To run
+running application three methods manually, using docker or via Makefile
+* Manually :
 
-### copy environment variable
+```bash
+# Copy enviroment variables from .env.sample to .env
+cp .env.sample .env
 
-```sh
-cp .env-sample .env
+# Copy Makefile sesuai environment
+cp Makefile.sample Makefile
+
+# Install package via npm or yarn
+yarn install
+
+# Run application via npm or yarn
+yarn run dev
+
+# Run migration or create migration file
+yarn i -g knex
+
+# Create migration
+knex migrate:make create_users_table --cwd=src 
+
+# Run migration
+knex migrate:latest --cwd=src
+
+# Mirate rollback
+knex migrate:rollback --cwd=src
+
+# Mirate down all
+knex migrate:down --cwd=src
+
+# Mirate down specfic file
+knex migrate:down specific_file.js --cwd=src
+
+# Create Seed
+knex seed:make users_seed --cwd=src
+
+# Run seed specific
+knex seed:run --specific=$(seed-name) --cwd=src
+
+# Run Seed
+knex seed:run --cwd=src
 ```
 
-### run manualy
+* Via Docker :
 
-* via yarn or npm :
+```bash
+# Copy enviroment variables from .env.sample to .env
+cp .env.sample .env
 
-```sh
-# install package
-npm install or yarn install
+# Copy Makefile sesuai environment
+cp Makefile.sample Makefile
 
-#  running app
-npm run dev or yarn dev
+# Build application
+docker-compose -f docker-compose-dev.yml up --build --remove-orphans --force-recreate
 
-# running unit tetsing
-npm run test or yarn test
+# Stop aplication
+CTRL+C 
+# then 
+docker-compose -f docker-compose-dev.yml down
+
+# After build you can run command with this
+docker-compose -f docker-compose-dev.yml up 
+# Or you can hide log with command
+docker-compose -f docker-compose-dev.yml up -d
+
+# Create migration in docker container
+docker-compose -f docker-compose-dev.yml exec fastify-tempalte knex migrate:make create_core_users_table --cwd=src 
+
+# Run migration in docker container
+docker-compose -f docker-compose-dev.yml exec fastify-tempalte knex migrate:latest --cwd=src
+
+# Create Seed in docker container
+docker-compose -f docker-compose-dev.yml exec fastify-tempalte knex seed:make seed_users --cwd=src
+
+# Run Seed in docker container
+docker-compose -f docker-compose-dev.yml exec fastify-tempalte knex seed:run --cwd=src
 ```
 
-* via make :
+* Via Make :
 
-```sh
-# start aplication with docker
-make docker-start 
+```bash
+# Copy enviroment variables from .env.sample to .env
+cp .env.sample .env
 
-# stop docker container
-make docker-stop 
+# Copy Makefile sesuai environment
+cp Makefile.sample Makefile
 
-# remove docker container
-make docker-down 
+# Build application
+make docker-build
+
+# Stop aplication
+CTRL+C 
+# then 
+make docker-down
+
+# After build you can run command with this
+make docker-start
 ```
 
 ### fill in the copied environment earlier
@@ -124,10 +189,10 @@ docker-compose up --build -d
 ### execution npm with container docker
 ```sh
 # install package
-docker-compose exec boillerplate-typescript npm install
+docker-compose exec fastify-template npm install
 
 # running unit testing
-docker-compose exec boillerplate-typescript npm run test
+docker-compose exec fastify-template npm run test
 ```
 
 ## Project Structure

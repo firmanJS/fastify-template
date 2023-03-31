@@ -21,6 +21,8 @@ module.exports = {
     POST: 'POST',
     GET: 'GET',
   },
+  PROD: 'production',
+  DEV: 'development',
   MODEL_PROPERTIES: {
     TABLES: {
       USERS: 'mst_users'

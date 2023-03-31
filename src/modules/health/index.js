@@ -5,9 +5,21 @@ const infoRoutesMiddleware = (fastify, opts, next) => {
   const routes = [
     {
       method: 'GET',
-      url: '/keep-alive',
-      // schema: schema.keepAlive,
-      handler: handler.keepAlive
+      url: '/',
+      schema: {
+        description: 'Get the status of the API',
+        tags: ['Info'],
+        summary: 'Obtain the status of the API',
+        // response: {
+        //   [HttpStatus.OK]: {
+        //     description: 'Successful response',
+        //     type: 'string'
+        //   },
+        //   [HttpStatus.BAD_REQUEST]: notFoundSchema,
+        //   [HttpStatus.INTERNAL_SERVER_ERROR]: errorSchema
+        // }
+      },
+      handler: handler.isAlive
     },
     {
       method: 'GET',
@@ -43,12 +55,6 @@ const infoRoutesMiddleware = (fastify, opts, next) => {
       //   }
       // },
       handler: handler.ping
-    },
-    {
-      method: 'GET',
-      url: '/version',
-      // schema: schema.version,
-      handler: handler.getVersion
     }
   ];
   routes.map((route) => fastify.route(route));
