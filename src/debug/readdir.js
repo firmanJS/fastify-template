@@ -8,4 +8,6 @@ data.map((r) => {
   if (r !== 'README.md') {
     console.log(fs.readFileSync(path.join(__dirname, `../modules/${r}/index.js`)));
   }
+
+  return true
 })
