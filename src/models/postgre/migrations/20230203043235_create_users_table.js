@@ -2,7 +2,7 @@ const { MODEL_PROPERTIES: { TABLES } } = require('../../../utils')
 
 exports.up = function (knex) {
   return knex.schema.createTable(TABLES.USERS, (table) => {
-    table.increments('id').primary()
+    table.uuid('id').defaultTo(knex.raw('uuid_generate_v4()')).primary();
     table.string('username', 50).notNullable().unique()
     table.string('email', 150).notNullable()
     table.string('salt', 225).notNullable()

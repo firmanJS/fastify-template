@@ -7,12 +7,9 @@ const {
 const { lang } = require('../../../lang')
 
 const COLUMN = [
-  'id', 'usernames', 'email', ...DATE_ONLY
+  'id', 'username', 'email', ...DATE_ONLY
 ]
 const DEFAULT_SORT = [COLUMN[0], 'DESC']
-
-exports.COLUMN = COLUMN
-exports.DEFAULT_SORT = DEFAULT_SORT
 // function cloning
 const condition = (builder, where, search) => {
   if (search) {
@@ -34,7 +31,8 @@ const sql = (where, search = false) => {
   return query
 }
 // end cloning
-
+exports.COLUMN = COLUMN
+exports.DEFAULT_SORT = DEFAULT_SORT
 /**
  *
  *

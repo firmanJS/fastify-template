@@ -1,12 +1,12 @@
 const moment = require('moment')
 const { TZ } = require('../config/app')
 
-const DATE_FORMAT_INDO = 'DD MMMM YYYY, H:mm:ss'
+const DATE_FORMAT_INDO = 'DD MMM YYYY, H:mm:ss'
 const LOG_FORMAT = 'DD-MM-YYYY'
 
-exports.fullDateFormatIndo = (date) => {
+exports.fullDateFormatIndo = (date, format = DATE_FORMAT_INDO) => {
   const dateManipualte = moment(new Date(date).getTime()).format(
-    DATE_FORMAT_INDO
+    format
   )
   const getNameDay = moment(date).locale('id').format('dddd')
 
